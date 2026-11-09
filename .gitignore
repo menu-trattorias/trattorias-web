@@ -4,4 +4,6 @@ out
 next-env.d.ts
 *.tsbuildinfo
 .firebase
+firebase-debug.log
+.claude
 
