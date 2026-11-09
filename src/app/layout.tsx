@@ -1,10 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit } from "next/font/google";
+import { Outfit, Playball } from "next/font/google";
 import "./globals.css";
 import { home, site } from "@/data/content";
 import { siteGraph } from "@/lib/seo";
 
 const outfit = Outfit({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"], variable: "--font-sans", display: "swap" });
+const script = Playball({ subsets: ["latin"], weight: "400", variable: "--font-script", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -24,11 +25,11 @@ export const metadata: Metadata = {
   other: { "geo.region": "IN-KL", "geo.placename": "Varkala, Kerala", "geo.country": "IN" },
 };
 
-export const viewport: Viewport = { themeColor: "#3fa34d", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#2a9d8f", width: "device-width", initialScale: 1 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={outfit.variable}>
+    <html lang="en" className={`${outfit.variable} ${script.variable}`}>
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteGraph()) }} />
         {children}

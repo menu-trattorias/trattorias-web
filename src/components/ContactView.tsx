@@ -319,7 +319,7 @@ export function ContactView() {
                   </button>
 
                   <div className="submit-note">
-                    <Icon name="ShieldCheck" size={14} color="#3fa34d" />
+                    <Icon name="ShieldCheck" size={14} color="#2a9d8f" />
                     <span>
                       Opens WhatsApp with your pre-filled details to <strong>{site.phone}</strong>.
                     </span>

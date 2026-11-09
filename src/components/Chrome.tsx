@@ -18,11 +18,8 @@ const links = [
 export function Logo({ sub }: { sub?: string }) {
   return (
     <Link href="/" className="logo" aria-label="Trattorias home">
-      <motion.span className="logo-mark" whileHover={{ rotate: -12, scale: 1.08 }}>
-        T
-      </motion.span>
       <span>
-        Trattorias
+        <span className="logo-word">Trattorias</span>
         {sub && <small>{sub}</small>}
       </span>
     </Link>

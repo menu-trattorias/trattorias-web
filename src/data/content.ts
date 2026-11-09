@@ -10,7 +10,7 @@ import { img } from "./images";
 
 export const site = {
   name: "Trattorias",
-  url: "https://trattorias.pages.dev", // TEMP — set to the real domain
+  url: "https://web-trattorias.web.app", // live site URL (Firebase Hosting)
   // One number for everything: calls, WhatsApp and enquiries across the whole website.
   phone: "+91 97469 68992",
   address: "Varkala, Kerala, India",
@@ -138,7 +138,7 @@ export const tranquil: BrandPage = {
     sub: "A recently renovated stay on Odayam Beach Road, Varkala — private garden verandahs, an outdoor pool and the beach just a 4-minute walk away.",
     cta: "Call Us",
     href: tel(site.phone),
-    slides: [img.tranquilHero, img.tranquilCourtyard, img.tranquilPoolAerial],
+    slides: [img.tranquilHero],
     corner: "4-minute walk to Odayam Beach",
     stat: { label: "Comfortable Rooms", to: 7 },
   },
@@ -301,7 +301,7 @@ export const restaurant: BrandPage = {
     sub: "A multi-cuisine restaurant, cafe and cocktail bar on North End Cliff, with an open-air, sea-facing terrace and sunset views.",
     cta: "Call Us",
     href: tel(site.phone),
-    slides: [img.restaurantHero, img.cliffTerraceSunset, img.panoramicBalcony],
+    slides: [img.restaurantHero],
     corner: "North End Cliff · Near Black Beach",
     stat: { label: "Diner Rating on TripAdvisor", to: 4.0, suffix: " / 5", decimals: 1 },
   },
