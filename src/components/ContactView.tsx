@@ -110,7 +110,7 @@ export function ContactView() {
               <span className="eyebrow">Contact Trattorias</span>
             </Reveal>
 
-            <SplitText text="Get in *Touch* with Us" />
+            <SplitText text="Get in *Touch* with Us" as="h1" immediate />
 
             <Reveal delay={0.15} y={18}>
               <p>

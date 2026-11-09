@@ -1,35 +1,35 @@
 import type { Metadata } from "next";
 import { PageShell } from "./PageShell";
 import { Amenities, Book, Cta, DishMenu, Gallery, Hero, Nearby, Process, Ratings, Showcase, Split, Stats, Why } from "./Sections";
+import { Faq } from "./Faq";
 import { site, waLink, type BrandPage } from "@/data/content";
+import { breadcrumbSchema, businessSchema, faqSchema, graph } from "@/lib/seo";
 
 export function brandMetadata(b: BrandPage): Metadata {
+  const images = [{ url: b.hero.slides[0], alt: `${b.name} — ${b.tagline}, Varkala` }];
   return {
     title: b.seo.title,
     description: b.seo.description,
+    keywords: b.seo.keywords,
     alternates: { canonical: b.path },
-    openGraph: { title: b.seo.title, description: b.seo.description, url: b.path, images: [{ url: b.hero.slides[0] }] },
+    openGraph: { type: "website", siteName: "Trattorias Varkala", locale: "en_IN", title: b.seo.title, description: b.seo.description, url: b.path, images },
+    twitter: { card: "summary_large_image", title: b.seo.title, description: b.seo.description, images: [b.hero.slides[0]] },
   };
 }
-
-const schemaType = { tranquil: "BedAndBreakfast", restaurant: "Restaurant", holiday: "LodgingBusiness", home: "Organization" };
 
 /**
  * Shared section rhythm with business-specific sections:
  * restaurant → tabbed menu, stays → rooms, plus amenities, nearby, ratings and booking where data exists.
  */
 export function BrandPageView({ b }: { b: BrandPage }) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": schemaType[b.theme],
-    name: b.name,
-    description: b.seo.description,
-    image: b.hero.slides[0],
-    url: site.url + b.path,
-    ...(b.phone && { telephone: b.phone }),
-    address: { "@type": "PostalAddress", streetAddress: b.address, addressLocality: "Varkala", addressRegion: "Kerala", addressCountry: "IN" },
-    ...(b.theme === "restaurant" && { servesCuisine: ["Italian", "Tibetan", "Thai", "Pan-Asian", "Oriental", "Continental", "Kerala seafood"] }),
-  };
+  const jsonLd = graph(
+    businessSchema(b),
+    faqSchema(b.faqs),
+    breadcrumbSchema([
+      { name: "Trattorias Varkala", path: "/" },
+      { name: b.name, path: b.path },
+    ])
+  );
 
   const enquire = (label: string, topic: string) => ({
     label,
@@ -83,6 +83,7 @@ export function BrandPageView({ b }: { b: BrandPage }) {
       {b.nearby && <Nearby {...b.nearby} wa={enquire("Ask About the Area on WhatsApp", "the area and getting around")} />}
       {b.ratings && <Ratings {...b.ratings} />}
       {b.book && <Book {...b.book} />}
+      <Faq title={`${b.name} — Frequently Asked Questions`} sub={`Quick answers about ${b.name} in Varkala, Kerala.`} faqs={b.faqs} />
       <Cta {...b.cta} href={b.cta.href ?? waLink(b.whatsapp, `Hello! I'd like to book a stay at ${b.name}.`)} image={b.cta.image ?? b.hero.slides[1] ?? b.hero.slides[0]} info={b.info} />
     </PageShell>
   );

@@ -2,18 +2,33 @@ import { PageShell } from "@/components/PageShell";
 import { Cta, Gallery, HomeHero, MarqueeBand, Process, Ratings, Showcase, Split, Stats, Why } from "@/components/Sections";
 import { brands, home, site, waLink } from "@/data/content";
 import { img } from "@/data/images";
+import { Faq } from "@/components/Faq";
+import { businessSchema, faqSchema, graph } from "@/lib/seo";
+import type { Metadata } from "next";
 
-export const metadata = { alternates: { canonical: "/" } };
+export const metadata: Metadata = {
+  title: home.seo.title,
+  description: home.seo.description,
+  keywords: home.seo.keywords,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: "Trattorias Varkala",
+    locale: "en_IN",
+    title: home.seo.title,
+    description: home.seo.description,
+    url: "/",
+    images: [{ url: img.restaurantHero, alt: "Trattorias Varkala — sea-view cliff restaurant, homestay and B&B in Varkala, Kerala" }],
+  },
+  twitter: { card: "summary_large_image", title: home.seo.title, description: home.seo.description, images: [img.restaurantHero] },
+};
 
 export default function HomePage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Trattorias Varkala",
-    url: site.url,
-    description: home.seo.description,
-    subOrganization: brands.map((b) => ({ "@type": "LocalBusiness", name: b.name, url: site.url + b.path })),
-  };
+  const jsonLd = graph(
+    { "@type": "WebPage", "@id": `${site.url}/#webpage`, url: site.url, name: home.seo.title, description: home.seo.description, isPartOf: { "@id": `${site.url}/#website` }, about: { "@id": `${site.url}/#organization` } },
+    ...brands.map(businessSchema),
+    faqSchema(home.faqs)
+  );
 
   return (
     <PageShell theme="home" sub="Varkala · Kerala" jsonLd={jsonLd} waHref={waLink(site.phone, "Hello! I'd like to enquire about Trattorias Varkala.")}>
@@ -66,6 +81,7 @@ export default function HomePage() {
       />
       <MarqueeBand images={home.marquee} />
       <Ratings {...home.ratings} />
+      <Faq title="Trattorias Varkala — Frequently Asked Questions" sub="Where to eat and stay in Varkala, Kerala." faqs={home.faqs} />
       <Cta
         eyebrow={home.cta.eyebrow}
         title={home.cta.title}

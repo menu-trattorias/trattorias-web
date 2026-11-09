@@ -54,7 +54,19 @@ export type BrandPage = {
   address: string;
   phone?: string;
   whatsapp: string;
-  seo: { title: string; description: string };
+  seo: { title: string; description: string; keywords: string[] };
+  /** Visible FAQ, also emitted as FAQPage structured data. Facts only from the supplied property docs. */
+  faqs: { q: string; a: string }[];
+  /** Structured-data (schema.org) facts. */
+  schema: {
+    rooms?: number;
+    checkin?: string;
+    checkout?: string;
+    hours?: { open: string; close: string };
+    amenities: string[];
+    sameAs: string[];
+    nearby: string[];
+  };
   hero: {
     title: string;
     sub: string;
@@ -93,7 +105,33 @@ export const tranquil: BrandPage = {
   seo: {
     title: "Trattorias Tranquil — Garden-View Stay near Odayam Beach, Varkala",
     description:
-      "Trattorias Tranquil on Odayam Beach Road, Varkala: a recently renovated stay with air-conditioned queen rooms, private garden verandahs, an outdoor pool, free Wi-Fi and parking — 4 minutes' walk to Odayam Beach.",
+      "Trattorias Tranquil on Odayam Beach Road, Varkala: a recently renovated stay with air-conditioned queen rooms, private garden verandahs, an outdoor swimming pool, free Wi-Fi and parking — 4 minutes' walk to Odayam Beach. Book direct.",
+    keywords: [
+      "Trattorias Tranquil", "Tranquil Varkala", "homestay in Varkala", "bed and breakfast Varkala", "B&B near Odayam Beach",
+      "Odayam Beach stay", "Varkala hotel with swimming pool", "Varkala homestay with pool", "garden stay Varkala",
+      "Varkala accommodation with free parking", "air conditioned rooms Varkala", "Odayam Beach Road hotel", "Varkala airport shuttle stay", "Varkala Kerala",
+    ],
+  },
+  faqs: [
+    { q: "Where is Trattorias Tranquil in Varkala?", a: "Trattorias Tranquil is on Odayam Beach Road, Varkala, Kerala — a 4-minute walk from Odayam Beach, about 2.1 km from Varkala Cliff and 2.2 km from Varkala Beach." },
+    { q: "Does Trattorias Tranquil have a swimming pool?", a: "Yes. Guests can use the outdoor swimming pool and the garden area, along with a shared living room and shared kitchen facilities." },
+    { q: "What types of rooms are available at Tranquil?", a: "Seven air-conditioned rooms in two categories — Standard Queen and Deluxe Queen — each with a flat-screen TV, private bathroom with hot water and a private garden verandah sit-out." },
+    { q: "What are the check-in and check-out times?", a: "Check-in is between 1:00 PM and 8:00 PM and check-out is between 11:00 AM and 12:00 PM. Staff and security are on duty 24/7." },
+    { q: "Is there free Wi-Fi and parking at Tranquil?", a: "Yes, free Wi-Fi is available throughout the property and free private car parking is available on site." },
+    { q: "Is there an airport shuttle from Thiruvananthapuram Airport?", a: "An airport shuttle service is available. Thiruvananthapuram Airport is about 40 km from the property. Car hire and bicycle rentals are also available." },
+    { q: "How can I book Trattorias Tranquil?", a: "Book direct by calling or messaging +91 97469 68992 on WhatsApp, or find Trattorias Tranquil on Booking.com, Agoda and allkeralahotels.net." },
+  ],
+  schema: {
+    rooms: 7,
+    checkin: "13:00",
+    checkout: "11:00",
+    amenities: ["Outdoor swimming pool", "Free Wi-Fi", "Free parking", "Air conditioning", "Garden", "24-hour security", "Airport shuttle", "Laundry", "Bicycle rental", "Shared kitchen"],
+    sameAs: [
+      "https://www.booking.com/hotel/in/trattorias-tranquil.html",
+      "https://www.agoda.com/en-in/trattorias-tranquil/hotel/varkala-in.html",
+      "https://hotel-191.allkeralahotels.net/en/",
+    ],
+    nearby: ["Odayam Beach", "Varkala Cliff", "Varkala Beach", "Edava Beach", "Varkala Aquarium"],
   },
   hero: {
     title: "Garden *Calm*,\nMinutes From the Sea",
@@ -236,7 +274,27 @@ export const restaurant: BrandPage = {
   seo: {
     title: "Trattorias Restaurant — Sea-View Dining on Varkala Cliff",
     description:
-      "Trattorias Restaurant on North End Cliff, Varkala: a multi-cuisine restaurant, cafe and cocktail bar serving Italian, Tibetan, Thai, Pan-Asian and Kerala seafood with open-air Arabian Sea and sunset views.",
+      "Trattorias Restaurant on North End Cliff, Varkala: a multi-cuisine restaurant, cafe and cocktail bar serving Italian wood-fired pizza, Tibetan momos, Thai, Pan-Asian, sushi and fresh Kerala seafood with open-air Arabian Sea and sunset views. Open daily 8 AM – 11 PM.",
+    keywords: [
+      "Trattorias Restaurant", "restaurant in Varkala", "best restaurant Varkala", "Varkala cliff restaurant", "North Cliff Varkala restaurant",
+      "sea view restaurant Varkala", "sunset dinner Varkala", "Varkala seafood restaurant", "cafe in Varkala", "cocktail bar Varkala",
+      "Italian pizza Varkala", "momos Varkala", "multi cuisine restaurant Varkala", "Black Beach Varkala restaurant", "breakfast in Varkala",
+    ],
+  },
+  faqs: [
+    { q: "Where is Trattorias Restaurant in Varkala?", a: "Trattorias Restaurant is on North End Cliff, near Black Beach, Varkala, Kerala 695141, with open-air terrace seating facing the Arabian Sea." },
+    { q: "What are the opening hours of Trattorias Restaurant?", a: "We are open daily from 8:00 AM to 11:00 PM — serving breakfast, all-day dining, sunset dinner and drinks." },
+    { q: "What kind of food does Trattorias Restaurant serve?", a: "A multi-cuisine menu: fresh Kerala seafood, sushi, Italian wood-fired pizza and pasta, Tibetan momos and thukpa, Thai and Pan-Asian dishes, Continental breakfast, bakery items and healthy salads." },
+    { q: "Does the restaurant have a sea view and sunset views?", a: "Yes. The open-air terrace and balcony seating look out over the Arabian Sea with sunset views." },
+    { q: "Is there a bar, cafe or takeaway?", a: "Yes. There is a cocktail bar with fresh juices, a full cafe and bakery with coffee, smoothies and desserts, and takeaway is available." },
+    { q: "Is there Wi-Fi and charging at the restaurant?", a: "Free customer Wi-Fi and charging sockets for laptops and phones are available." },
+    { q: "How do I reserve a table?", a: "Call or WhatsApp +91 97469 68992 to reserve a table or ask any question about the menu." },
+  ],
+  schema: {
+    hours: { open: "08:00", close: "23:00" },
+    amenities: ["Sea view terrace", "Free Wi-Fi", "Takeaway", "Cocktail bar", "Outdoor seating", "Charging sockets"],
+    sameAs: [],
+    nearby: ["North Cliff", "Black Beach", "Varkala Beach"],
   },
   hero: {
     title: "Ocean Views\nUnforgettable *Flavours*",
@@ -373,7 +431,31 @@ export const holiday: BrandPage = {
   seo: {
     title: "Trattorias Holiday Homes — Homestay Near North Cliff, Varkala",
     description:
-      "Trattorias Holiday Homes: a new 6-room homestay on Black Beach, Thiruvambadi Road, Varkala. Air-conditioned rooms with private bathrooms, 5 minutes from North Cliff.",
+      "Trattorias Holiday Homes: a new 6-room homestay on Black Beach, Thiruvambadi Road, Varkala. Air-conditioned rooms with private bathrooms, 24-hour front desk, 5 minutes' walk from North Cliff. Rated 4.2 on MakeMyTrip.",
+    keywords: [
+      "Trattorias Holiday Homes", "Holiday Homes Varkala", "homestay near North Cliff Varkala", "Black Beach Varkala stay", "Varkala homestay",
+      "Thiruvambadi Road Varkala", "budget stay Varkala", "air conditioned homestay Varkala", "Varkala couples stay", "stay near Varkala Beach",
+      "Varkala holiday home", "North Cliff Varkala accommodation", "new homestay Varkala",
+    ],
+  },
+  faqs: [
+    { q: "Where is Trattorias Holiday Homes?", a: "Trattorias Holiday Homes is at Black Beach, Thiruvambadi Road, Varkala Beach, Varkala, Kerala 695141 — about a 5-minute walk (0.35–0.4 km) from North Cliff and 0.5 km from Varkala Beach." },
+    { q: "How many rooms does Holiday Homes have?", a: "Six ground-floor, air-conditioned rooms in a new building, each with a private bathroom (hot and cold water, bidet and toiletries) and a balcony or terrace. King-bed rooms sleep 2 adults." },
+    { q: "What facilities are available?", a: "A 24-hour front desk, on-site caretaker, shared kitchenette, power backup, parking, housekeeping and laundry service, and Swiggy food delivery access." },
+    { q: "Is Holiday Homes suitable for couples and groups of friends?", a: "Yes, couples and groups of friends are welcome." },
+    { q: "How do I book Trattorias Holiday Homes?", a: "Find us on MakeMyTrip, Goibibo, Booking.com and allkeralahotels.net, or call or WhatsApp +91 97469 68992. Hosts usually reply within 6 hours." },
+    { q: "How is Holiday Homes rated by guests?", a: "Guests rate us 4.2 out of 5 on MakeMyTrip (29 ratings) and Goibibo (26 ratings), often mentioning peaceful surroundings, clean rooms and a helpful host." },
+  ],
+  schema: {
+    rooms: 6,
+    amenities: ["Air conditioning", "Private bathroom", "24-hour front desk", "Parking", "Shared kitchenette", "Power backup", "Laundry service", "Balcony or terrace"],
+    sameAs: [
+      "https://www.booking.com/hotel/in/trattorias-holiday-home.html",
+      "https://www.makemytrip.com/hotels/trattorias_holiday_homes-details-varkala.html",
+      "https://www.goibibo.com/hotels/trattorias-holiday-homes-hotel-in-varkala-1058302686415001657/",
+      "https://trattorias-holiday-home.allkeralahotels.net/en/",
+    ],
+    nearby: ["North Cliff", "Black Beach", "Varkala Beach"],
   },
   hero: {
     title: "A Quiet Escape,\n*Moments* From the Sea",
@@ -506,10 +588,21 @@ export const brands = [tranquil, restaurant, holiday];
    ================================================================ */
 export const home = {
   seo: {
-    title: "Trattorias Varkala — Restaurant, Holiday Homes & Tranquil Stay",
+    title: "Trattorias Varkala — Cliff Restaurant, Homestay & B&B in Varkala, Kerala",
     description:
-      "Trattorias in Varkala, Kerala: sea-view cliff dining at North End Cliff, Holiday Homes near North Cliff and the garden-view Tranquil stay near Odayam Beach.",
+      "Trattorias in Varkala, Kerala: sea-view cliff restaurant & cafe on North End Cliff, Holiday Homes homestay near North Cliff, and Tranquil bed & breakfast with a pool near Odayam Beach. Eat, stay and unwind by the Arabian Sea.",
+    keywords: [
+      "Trattorias Varkala", "Varkala restaurant", "Varkala homestay", "Varkala bed and breakfast", "where to stay in Varkala", "where to eat in Varkala",
+      "North Cliff Varkala", "Odayam Beach", "Black Beach Varkala", "Varkala Kerala hotels", "Varkala cliff dining", "Varkala sunset", "Varkala holiday stay",
+    ],
   },
+  faqs: [
+    { q: "What is Trattorias Varkala?", a: "Trattorias is a family of three places in Varkala, Kerala: Trattorias Restaurant (cliff-top multi-cuisine dining on North End Cliff), Trattorias Holiday Homes (a six-room homestay near North Cliff) and Trattorias Tranquil (a bed & breakfast with a pool near Odayam Beach)." },
+    { q: "Where can I eat with a sea view in Varkala?", a: "Trattorias Restaurant on North End Cliff has an open-air, sea-facing terrace with Arabian Sea and sunset views, open daily 8:00 AM to 11:00 PM." },
+    { q: "Where can I stay near North Cliff in Varkala?", a: "Trattorias Holiday Homes at Black Beach, Thiruvambadi Road is about a 5-minute walk from North Cliff, with six air-conditioned rooms and a 24-hour front desk." },
+    { q: "Is there a place to stay near Odayam Beach with a pool?", a: "Yes — Trattorias Tranquil on Odayam Beach Road has an outdoor swimming pool, private garden verandahs and is a 4-minute walk from Odayam Beach." },
+    { q: "How do I contact or book Trattorias?", a: "Call or WhatsApp +91 97469 68992 for room reservations, restaurant tables and travel advice." },
+  ],
   slides: [
     { image: img.beachCoastline, title: "Eat, Stay & Unwind\nin Varkala", brand: "Trattorias Varkala" },
     { image: img.cliffTerraceSunset, title: "Sea-View Dining\non the Cliff", brand: "Trattorias Restaurant" },
