@@ -3375,6 +3375,10 @@ p {
   .mosaic {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .mosaic .tile:last-child {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 860px) {
