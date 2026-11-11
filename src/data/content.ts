@@ -11,8 +11,14 @@ import { img } from "./images";
 export const site = {
   name: "Trattorias",
   url: "https://web-trattorias.web.app", // live site URL (Firebase Hosting)
-  // One number for everything: calls, WhatsApp and enquiries across the whole website.
+  // General number (restaurant) used on the home, contact page and footer.
   phone: "+91 97469 68992",
+  // Dedicated call / WhatsApp number for each property.
+  phones: {
+    restaurant: "+91 97469 68992",
+    holiday: "+91 93633 18992",
+    tranquil: "+91 73062 68992",
+  },
   address: "Varkala, Kerala, India",
 };
 
@@ -100,8 +106,8 @@ export const tranquil: BrandPage = {
   tagline: "Bed & Breakfast",
   blurb: "A recently renovated stay with private garden verandahs and an outdoor pool, a 4-minute walk from Odayam Beach.",
   address: "Odayam Beach Road, Varkala, Kerala, India",
-  phone: site.phone,
-  whatsapp: site.phone,
+  phone: site.phones.tranquil,
+  whatsapp: site.phones.tranquil,
   seo: {
     title: "Trattorias Tranquil — Garden-View Stay near Odayam Beach, Varkala",
     description:
@@ -119,7 +125,7 @@ export const tranquil: BrandPage = {
     { q: "What are the check-in and check-out times?", a: "Check-in is between 1:00 PM and 8:00 PM and check-out is between 11:00 AM and 12:00 PM. Staff and security are on duty 24/7." },
     { q: "Is there free Wi-Fi and parking at Tranquil?", a: "Yes, free Wi-Fi is available throughout the property and free private car parking is available on site." },
     { q: "Is there an airport shuttle from Thiruvananthapuram Airport?", a: "An airport shuttle service is available. Thiruvananthapuram Airport is about 40 km from the property. Car hire and bicycle rentals are also available." },
-    { q: "How can I book Trattorias Tranquil?", a: "Book direct by calling or messaging +91 97469 68992 on WhatsApp, or find Trattorias Tranquil on Booking.com, Agoda and allkeralahotels.net." },
+    { q: "How can I book Trattorias Tranquil?", a: "Book direct by calling or messaging +91 73062 68992 on WhatsApp, or find Trattorias Tranquil on Booking.com, Agoda and allkeralahotels.net." },
   ],
   schema: {
     rooms: 7,
@@ -137,7 +143,7 @@ export const tranquil: BrandPage = {
     title: "Garden *Calm*,\nMinutes From the Sea",
     sub: "A recently renovated stay on Odayam Beach Road, Varkala — private garden verandahs, an outdoor pool and the beach just a 4-minute walk away.",
     cta: "Call Us",
-    href: tel(site.phone),
+    href: tel(site.phones.tranquil),
     slides: [img.tranquilHero],
     corner: "4-minute walk to Odayam Beach",
     stat: { label: "Comfortable Rooms", to: 7 },
@@ -191,7 +197,7 @@ export const tranquil: BrandPage = {
     title: "Your *Stay*,\nStep by Step",
     image: img.tranquilCourtyard,
     steps: [
-      { title: "Call to Book", text: "Call or WhatsApp +91 97469 68992 to reserve your room." },
+      { title: "Call to Book", text: "Call or WhatsApp +91 73062 68992 to reserve your room." },
       { title: "Easy Arrival", text: "Check in between 1:00 PM and 8:00 PM — our staff is on hand 24/7." },
       { title: "Settle In", text: "Enjoy the pool, the garden, and the shared living room and kitchen." },
       { title: "Explore Varkala", text: "Odayam Beach is 4 minutes on foot, and bicycles are available to rent." },
@@ -248,15 +254,15 @@ export const tranquil: BrandPage = {
       Agoda: "https://www.agoda.com/en-in/trattorias-tranquil/hotel/varkala-in.html",
       "allkeralahotels.net": "https://hotel-191.allkeralahotels.net/en/",
     },
-    phone: site.phone,
-    whatsapp: site.phone,
+    phone: site.phones.tranquil,
+    whatsapp: site.phones.tranquil,
   },
   info: [
     { icon: "MapPin", label: "Location", value: "Odayam Beach Road, Varkala", href: mapsLink("Trattorias Tranquil, Odayam Beach Road, Varkala, Kerala, India") },
     { icon: "Key", label: "Check-in / out", value: "1–8 PM / 11 AM–12 PM" },
-    { icon: "Phone", label: "Direct booking", value: site.phone, href: tel(site.phone) },
+    { icon: "Phone", label: "Direct booking", value: site.phones.tranquil, href: tel(site.phones.tranquil) },
   ],
-  cta: { eyebrow: "Stay with us", title: "Your Quiet Corner of Varkala", sub: "Book direct by phone or WhatsApp.", button: "Call to Book", href: tel(site.phone), image: img.tranquilPatioDusk },
+  cta: { eyebrow: "Stay with us", title: "Your Quiet Corner of Varkala", sub: "Book direct by phone or WhatsApp.", button: "Call to Book", href: tel(site.phones.tranquil), image: img.tranquilPatioDusk },
 };
 
 /* ================================================================
@@ -269,8 +275,8 @@ export const restaurant: BrandPage = {
   tagline: "Cliff-top dining",
   blurb: "A multi-cuisine restaurant, cafe and cocktail bar on North End Cliff with sea-facing terrace seating.",
   address: "North End Cliff, near Black Beach, Varkala, Kerala 695141",
-  phone: site.phone,
-  whatsapp: site.phone,
+  phone: site.phones.restaurant,
+  whatsapp: site.phones.restaurant,
   seo: {
     title: "Trattorias Restaurant — Sea-View Dining on Varkala Cliff",
     description:
@@ -300,7 +306,7 @@ export const restaurant: BrandPage = {
     title: "Ocean Views\nUnforgettable *Flavours*",
     sub: "A multi-cuisine restaurant, cafe and cocktail bar on North End Cliff, with an open-air, sea-facing terrace and sunset views.",
     cta: "Call Us",
-    href: tel(site.phone),
+    href: tel(site.phones.restaurant),
     slides: [img.restaurantHero],
     corner: "North End Cliff · Near Black Beach",
     stat: { label: "Diner Rating on TripAdvisor", to: 4.0, suffix: " / 5", decimals: 1 },
@@ -411,9 +417,9 @@ export const restaurant: BrandPage = {
   info: [
     { icon: "MapPin", label: "Location", value: "North End Cliff, near Black Beach, Varkala", href: mapsLink("Trattorias Restaurant, North End Cliff, Varkala, Kerala") },
     { icon: "Clock", label: "Hours", value: "8:00 AM – 11:00 PM daily" },
-    { icon: "Phone", label: "Reservations & queries", value: site.phone, href: tel(site.phone) },
+    { icon: "Phone", label: "Reservations & queries", value: site.phones.restaurant, href: tel(site.phones.restaurant) },
   ],
-  cta: { eyebrow: "Visit us", title: "Come for the Sunset", sub: "Sea-facing tables on the Varkala cliff.", button: "Call Us", href: tel(site.phone), image: img.romanticTable },
+  cta: { eyebrow: "Visit us", title: "Come for the Sunset", sub: "Sea-facing tables on the Varkala cliff.", button: "Call Us", href: tel(site.phones.restaurant), image: img.romanticTable },
 };
 
 /* ================================================================
@@ -426,8 +432,8 @@ export const holiday: BrandPage = {
   tagline: "Homestay",
   blurb: "A new six-room homestay on Black Beach, about a 5-minute walk from North Cliff.",
   address: "Black Beach, Thiruvambadi Road, Varkala Beach, Varkala, Kerala 695141",
-  phone: site.phone,
-  whatsapp: site.phone,
+  phone: site.phones.holiday,
+  whatsapp: site.phones.holiday,
   seo: {
     title: "Trattorias Holiday Homes — Homestay Near North Cliff, Varkala",
     description:
@@ -443,7 +449,7 @@ export const holiday: BrandPage = {
     { q: "How many rooms does Holiday Homes have?", a: "Six ground-floor, air-conditioned rooms in a new building, each with a private bathroom (hot and cold water, bidet and toiletries) and a balcony or terrace. King-bed rooms sleep 2 adults." },
     { q: "What facilities are available?", a: "A 24-hour front desk, on-site caretaker, shared kitchenette, power backup, parking, housekeeping and laundry service, and Swiggy food delivery access." },
     { q: "Is Holiday Homes suitable for couples and groups of friends?", a: "Yes, couples and groups of friends are welcome." },
-    { q: "How do I book Trattorias Holiday Homes?", a: "Find us on MakeMyTrip, Goibibo, Booking.com and allkeralahotels.net, or call or WhatsApp +91 97469 68992. Hosts usually reply within 6 hours." },
+    { q: "How do I book Trattorias Holiday Homes?", a: "Find us on MakeMyTrip, Goibibo, Booking.com and allkeralahotels.net, or call or WhatsApp +91 93633 18992. Hosts usually reply within 6 hours." },
     { q: "How is Holiday Homes rated by guests?", a: "Guests rate us 4.2 out of 5 on MakeMyTrip (29 ratings) and Goibibo (26 ratings), often mentioning peaceful surroundings, clean rooms and a helpful host." },
   ],
   schema: {
@@ -461,7 +467,7 @@ export const holiday: BrandPage = {
     title: "A Quiet Escape,\n*Moments* From the Sea",
     sub: "A peaceful six-room retreat by Black Beach on Thiruvambadi Road — unwind in air-conditioned comfort, just a 5-minute stroll from Varkala's vibrant North Cliff.",
     cta: "Call Us",
-    href: tel(site.phone),
+    href: tel(site.phones.holiday),
     slides: [img.holidayHero],
     corner: "5-minute stroll to North Cliff",
     stat: { label: "Guest Rating on MakeMyTrip", to: 4.2, suffix: " / 5", decimals: 1 },
@@ -569,8 +575,8 @@ export const holiday: BrandPage = {
       Goibibo: "https://www.goibibo.com/hotels/trattorias-holiday-homes-hotel-in-varkala-1058302686415001657/",
       "allkeralahotels.net": "https://trattorias-holiday-home.allkeralahotels.net/en/",
     },
-    phone: site.phone,
-    whatsapp: site.phone,
+    phone: site.phones.holiday,
+    whatsapp: site.phones.holiday,
   },
   info: [
     { icon: "MapPin", label: "Address", value: "Black Beach, Thiruvambadi Road, Varkala 695141" },
