@@ -100,7 +100,7 @@ export function Navbar({ sub }: { sub?: string }) {
   );
 }
 
-export function Footer() {
+export function Footer({ phone = site.phone }: { phone?: string }) {
   return (
     <footer className="footer" id="contact">
       <div className="container">
@@ -132,8 +132,8 @@ export function Footer() {
             <h5>Contact</h5>
             <ul>
               <li><Link href="/contact/">Contact Us</Link></li>
-              <li><a href={tel(site.phone)}>{site.phone}</a></li>
-              <li><a href={whatsapp(site.phone)} target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>
+              <li><a href={tel(phone)}>{phone}</a></li>
+              <li><a href={whatsapp(phone)} target="_blank" rel="noopener noreferrer">WhatsApp us</a></li>
               <li><Link href="/contact/#map">{site.address}</Link></li>
             </ul>
           </div>

@@ -142,7 +142,7 @@ export function ContactView() {
                   </div>
                   <div className="quick-card-text">
                     <small>Instant WhatsApp</small>
-                    <strong>+91 97469 68992</strong>
+                    <strong>{site.phone}</strong>
                   </div>
                 </a>
 

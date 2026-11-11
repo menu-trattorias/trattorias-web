@@ -457,7 +457,7 @@ export function Showcase({
                 {/^https?:/.test(c.href ?? "") ? (
                   <a href={c.href} target="_blank" rel="noopener noreferrer" className="img-card brand-card" data-brand={c.brand}>
 
-                    <img src={c.image} alt={c.title} loading="lazy" />
+                    <img src={c.image} alt={c.title} loading="lazy" style={c.imagePosition ? { objectPosition: c.imagePosition } : undefined} />
                     <span className="go">
                       <Icon name="ArrowUpRight" />
                     </span>
@@ -471,7 +471,7 @@ export function Showcase({
                 ) : (
                   <Link href={c.href ?? "#contact"} className="img-card brand-card" data-brand={c.brand}>
 
-                    <img src={c.image} alt={c.title} loading="lazy" />
+                    <img src={c.image} alt={c.title} loading="lazy" style={c.imagePosition ? { objectPosition: c.imagePosition } : undefined} />
                     <span className="go">
                       <Icon name="ArrowUpRight" />
                     </span>

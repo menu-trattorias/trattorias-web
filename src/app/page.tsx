@@ -56,12 +56,8 @@ export default function HomePage() {
         items={brands.map((b) => ({
           title: b.name,
           text: b.blurb,
-          image:
-            b.theme === "restaurant"
-              ? img.restaurantHero
-              : b.theme === "holiday"
-              ? img.holidayModernVillaCourtyard
-              : img.tranquilPoolAerial,
+          image: b.hero.slides[0],
+          imagePosition: b.theme === "holiday" ? "right center" : undefined,
           tag: b.tagline,
           href: b.path,
           brand: b.theme,

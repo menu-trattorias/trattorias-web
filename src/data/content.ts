@@ -11,7 +11,7 @@ import { img } from "./images";
 export const site = {
   name: "Trattorias",
   url: "https://web-trattorias.web.app", // live site URL (Firebase Hosting)
-  // General number (restaurant) used on the home, contact page and footer.
+  // Common number used on the home page, contact page and footer.
   phone: "+91 97469 68992",
   // Dedicated call / WhatsApp number for each property.
   phones: {
@@ -32,7 +32,7 @@ export const waLink = (p: string, text: string) => `${whatsapp(p)}?text=${encode
 export type Theme = "home" | "tranquil" | "restaurant" | "holiday";
 
 export type Feature = { icon: IconName; title: string; text: string; image?: string };
-export type Card = { title: string; text?: string; image: string; tag?: string; price?: string; href?: string; brand?: string };
+export type Card = { title: string; text?: string; image: string; tag?: string; price?: string; href?: string; brand?: string; imagePosition?: string };
 export type Tile = { src: string; caption: string; size?: "tall" | "wide" };
 export type AmenityGroup = { icon: IconName; title: string; items: string[] };
 export type Score = { value: string; label: string; note: string };
@@ -307,7 +307,7 @@ export const restaurant: BrandPage = {
     sub: "A multi-cuisine restaurant, cafe and cocktail bar on North End Cliff, with an open-air, sea-facing terrace and sunset views.",
     cta: "Call Us",
     href: tel(site.phones.restaurant),
-    slides: [img.restaurantHero],
+    slides: [img.restaurantNightTerrace],
     corner: "North End Cliff · Near Black Beach",
     stat: { label: "Diner Rating on TripAdvisor", to: 4.0, suffix: " / 5", decimals: 1 },
   },
@@ -468,7 +468,7 @@ export const holiday: BrandPage = {
     sub: "A peaceful six-room retreat by Black Beach on Thiruvambadi Road — unwind in air-conditioned comfort, just a 5-minute stroll from Varkala's vibrant North Cliff.",
     cta: "Call Us",
     href: tel(site.phones.holiday),
-    slides: [img.holidayHero],
+    slides: [img.holidayTwilightCourtyard],
     corner: "5-minute stroll to North Cliff",
     stat: { label: "Guest Rating on MakeMyTrip", to: 4.2, suffix: " / 5", decimals: 1 },
   },

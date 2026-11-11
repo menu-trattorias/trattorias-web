@@ -6,7 +6,7 @@ import { site, waLink } from "@/data/content";
 export const metadata: Metadata = {
   title: "Contact Us & Direct Enquiries — Trattorias Varkala",
   description:
-    "Get in touch with Trattorias Varkala for room reservations at Tranquil and Holiday Homes, cliff-top restaurant dining, or local travel advice. Connect directly on WhatsApp or call +91 97469 68992.",
+    `Get in touch with Trattorias Varkala for room reservations at Tranquil and Holiday Homes, cliff-top restaurant dining, or local travel advice. Connect directly on WhatsApp or call ${site.phone}.`,
   keywords: ["contact Trattorias Varkala", "Varkala restaurant reservations", "book homestay Varkala", "Varkala WhatsApp booking", "Varkala hotel phone number"],
   alternates: { canonical: "/contact/" },
   openGraph: {

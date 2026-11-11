@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import { PageShell } from "./PageShell";
 import { Amenities, Book, Cta, DishMenu, Gallery, Hero, Nearby, Process, Ratings, Showcase, Split, Stats, Why } from "./Sections";
 import { Faq } from "./Faq";
-import { site, waLink, type BrandPage } from "@/data/content";
+import { site, waLink, type BrandPage, type Theme } from "@/data/content";
 import { breadcrumbSchema, businessSchema, faqSchema, graph } from "@/lib/seo";
+
+/** Small label under the logo in the navbar on each property page. */
+const NAV_LABEL: Partial<Record<Theme, string>> = { restaurant: "Restaurant", tranquil: "Tranquil", holiday: "Homestay" };
 
 export function brandMetadata(b: BrandPage): Metadata {
   const images = [{ url: b.hero.slides[0], alt: `${b.name} — ${b.tagline}, Varkala` }];
@@ -38,7 +41,7 @@ export function BrandPageView({ b }: { b: BrandPage }) {
   const isStay = b.theme !== "restaurant";
 
   return (
-    <PageShell theme={b.theme} sub={b.tagline} jsonLd={jsonLd} waHref={waLink(b.whatsapp, `Hello! I'd like to enquire about ${b.name}.`)}>
+    <PageShell phone={b.phone} theme={b.theme} sub={NAV_LABEL[b.theme]} jsonLd={jsonLd} waHref={waLink(b.whatsapp, `Hello! I'd like to enquire about ${b.name}.`)}>
       <Hero
         slides={b.hero.slides.map((image) => ({ image }))}
         title={b.hero.title}

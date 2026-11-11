@@ -57,6 +57,7 @@ export const img = {
 
   // Restaurant (Real photos from /public/images/restaurant)
   restaurantHero: "/images/restaurant/restaurant-hero.webp",
+  restaurantNightTerrace: "/images/restaurant/restaurant-night-terrace_converted.webp",
   cliffTerraceSunset: "/images/restaurant/cliff-terrace-sunset-sign.webp",
   panoramicBalcony: "/images/restaurant/panoramic-sea-view-balcony.webp",
   eveningTerrace: "/images/restaurant/evening-dining-terrace-ambience.webp",
@@ -116,6 +117,7 @@ export const img = {
 
   // Holiday Home (Real photos from /public/images/holiday)
   holidayHero: "/images/holiday/holiday-hero.webp",
+  holidayTwilightCourtyard: "/images/holiday/twilight-courtyard-pavilion_converted.webp",
   holidayBuildingExterior: "/images/holiday/building-exterior-daytime.webp",
   holidayBuildingExteriorDaytimePng: "/images/holiday/building-exterior-daytime.webp",
   holidayEveningGazebo: "/images/holiday/evening-courtyard-gazebo-lounge.webp",
