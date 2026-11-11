@@ -50,6 +50,7 @@ export function BrandPageView({ b }: { b: BrandPage }) {
         ctaHref={b.hero.href ?? waLink(b.whatsapp, `Hello! I'd like to book a stay at ${b.name}.`)}
         corner={b.hero.corner}
         stat={b.hero.stat}
+        imagePosition={b.hero.imagePosition}
       />
       <Why {...b.why} />
       <Split {...b.split} wa={enquire("Enquire on WhatsApp", isStay ? "your rooms" : "the restaurant")} />

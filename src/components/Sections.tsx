@@ -93,7 +93,9 @@ export function Hero({
   corner,
   stat,
   booking = false,
+  imagePosition,
 }: {
+  imagePosition?: string;
   slides: Slide[];
   title?: string;
   sub: string;
@@ -133,7 +135,7 @@ export function Hero({
               // keep the old slide fully visible underneath until the new one has faded in
               exit={{ opacity: 0, transition: { delay: 1.2, duration: 0.01 } }}
               transition={{ opacity: { duration: 1.2 }, scale: { duration: 7, ease: "linear" } }}
-              style={{ position: "absolute", inset: 0 }}
+              style={{ position: "absolute", inset: 0, objectPosition: imagePosition }}
               fetchPriority={i === 0 ? "high" : "auto"}
             />
           </AnimatePresence>

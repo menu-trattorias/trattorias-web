@@ -79,6 +79,8 @@ export type BrandPage = {
     cta: string;
     href?: string;
     slides: string[];
+    /** CSS object-position for the hero image, e.g. "right center". */
+    imagePosition?: string;
     corner: string;
     stat: { label: string; to: number; prefix?: string; suffix?: string; decimals?: number };
   };
@@ -469,6 +471,7 @@ export const holiday: BrandPage = {
     cta: "Call Us",
     href: tel(site.phones.holiday),
     slides: [img.holidayTwilightCourtyard],
+    imagePosition: "right center",
     corner: "5-minute stroll to North Cliff",
     stat: { label: "Guest Rating on MakeMyTrip", to: 4.2, suffix: " / 5", decimals: 1 },
   },
